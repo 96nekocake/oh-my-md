@@ -9,7 +9,7 @@ Rocky LinuxでsshKeyを作成する方法について説明します。<br>
 上記のコマンドを入力したらsshフォルダに移動できます。
 
 ## step2
-次にKeyを作成します<br>
+次にKeyを作成します  
 `ssh-keygen -t rsa`
 上記のコマンドで作成できます。<br>
 
