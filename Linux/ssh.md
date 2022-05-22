@@ -1,23 +1,24 @@
-# Use SSH on Rocky Linux
-Rocky Linuxでsshを使用する際の手順について説明します。<br>
+- sshdとはなんぞ？
+  -  sshで接続する時に使用されるデーモンプログラム
+- sshとは？
+  - リモートでサーバーにログインできるようにする仕組みである
 
-<!-- more -->
+# SSHの起動と停止
+Rocky LinuxはCentOS8と同じく初期でsshdがインストールされているので、デーモンを起動するだけでssh接続が可能です。<br>
 
-Rocky LinuxはCentOS8と同じく初期でSSHがインストールされているので、デーモンを起動するだけでssh接続が可能になります。
-
-## SSHの起動と停止
-SSHのデーモン起動は下記のコマンドを実行すれば起動します。<br>
+sshdの起動は下記のコマンドを実行すれば起動します。<br>
 `systemctl start sshd`
 
-このままではパソコンを再起動した際にsshdがstopしたままなので、下記のコマンドで自動起動をオンに変更<br>
+このままではパソコンを再起動した際にsshdが停止したままなので、毎回起動するのが面倒な人は下記のコマンドで自動起動をオンに変更しましょう<br>
 `systemctl enable sshd`
 
-sshdを使わない場合はセキュリティ面で危険なので下記のコマンドでオフに変更しましょう。<br>
+sshdを使わない場合はセキュリティ面で危険なので下記のコマンドでオフに変更しましょう。
 `systemctl disable sshd`
 
-## ルートユーザーのアクセスを禁止にする
-sshの初期設定だとルートユーザーでのアクセスを許可になっているのですが、セキュリティ上宜しくないので禁止に変更します。<br>
+# SSH経由のルートユーザーユーザーログインを無効にする
+sshの初期設定だとルートユーザーでのアクセスが有効化されており、セキュリティ的に宜しくないので無効化します。<br>
 
+## sshdのコンフィグを編集
 sshの設定ファイルを編集します。<br>
 コンフィグは下記の場所にあります。<br>
 `/etc/ssh/sshd_config`<br>
@@ -27,7 +28,7 @@ sshd_configの中から`PermitRootLogin`が記述されている行を検索<br>
 見つけたら`PermitRootLogin yes`をコメントアウトし、その下に`PermitRootLogin no`を追記<br>
 
 例
-```
+```config:sshd_config
 #PermitRootLogin yes
 PermitRootLogin no
 ```
@@ -39,4 +40,7 @@ PermitRootLogin no
 正しく変更できている場合、ルートユーザーでログインできなくなっています。<br>
 もし、ログインできてしまった場合は設定ファイルの編集ミスか設定ファイルの再読み込みができていない可能性があるので確認して下さい。<br>
 
-以上で「Rocky Linuxでsshを使用する手順」終了です、お疲れさまでした。
+# 参考
+- [RedHat システム管理者のガイド - 第12章 OpenSSH](https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-openssh)
+- [RedHat システム管理者のガイド - 12.2. OpenSSH の設定](https://access.redhat.com/documentation/ja-jp/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-openssh)
+- [manページ - SSHD](https://nxmnpg.lemoda.net/ja/8/sshd)
