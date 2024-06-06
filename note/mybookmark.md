@@ -135,10 +135,10 @@
 - [haikei](https://app.haikei.app/)
 
 ## 趣味
-[Music for programming](https://musicforprogramming.net/sixtytwo/)
-[社内ニートのあれこれ](https://www.inoino-subcal.com)
-[NGA.CN](https://bbs.nga.cn)
-[DEVIANT ART](https://www.deviantart.com)
-[Puzzle Square JP](https://puzsq.jp/main/index.php)
-[MARKの部屋](http://www2.tbb.t-com.ne.jp/mark/order.html)
-[とどラン](https://todo-ran.com/)
+- [Music for programming](https://musicforprogramming.net/sixtytwo/)
+- [社内ニートのあれこれ](https://www.inoino-subcal.com)
+- [NGA.CN](https://bbs.nga.cn)
+- [DEVIANT ART](https://www.deviantart.com)
+- [Puzzle Square JP](https://puzsq.jp/main/index.php)
+- [MARKの部屋](http://www2.tbb.t-com.ne.jp/mark/order.html)
+- [とどラン](https://todo-ran.com/)
